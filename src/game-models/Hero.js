@@ -11,7 +11,7 @@ class Hero {
     this.position -= 1;
   }
 
-  moveRight() {
+  moveRight( ) {
     // Идём вправо.
     this.position += 1;
   }

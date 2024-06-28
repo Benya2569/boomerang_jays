@@ -8,7 +8,7 @@ const keypress = require('keypress');
 // Настроим соответствия нажатий на клавиши и действий в игре.
 
 const keyboard = {
-  q: () => console.log('q'),
+  q: (hero) => hero.moveLeft(),
   w: () => console.log('w'),
   e: () => console.log('e'),
   r: () => console.log('r'),
@@ -31,22 +31,24 @@ const keyboard = {
   x: () => console.log('x'),
   c: () => console.log('c'),
   v: () => console.log('v'),
-  b: () => console.log('b'),
-  n: () => console.log('n'),
+  b: () => console.log('b'),  
   m: () => console.log('m'),
+ space : () => console.log(' '),
 
+
+ 
 
 };
 
 // Какая-то функция.
 
-function runInteractiveConsole() {
+function runInteractiveConsole(hero) {
   keypress(process.stdin);
   process.stdin.on('keypress', (ch, key) => {
     if (key) {
       // Вызывает команду, соответствующую нажатой кнопке.
       if (key.name in keyboard) {
-        keyboard[key.name]();
+        keyboard[key.name](hero);
       }
       // Прерывание программы.
       if (key.ctrl && key.name === 'c') {
