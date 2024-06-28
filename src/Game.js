@@ -2,10 +2,15 @@
 // Или можно не импортировать,
 // а передавать все нужные объекты прямо из run.js при инициализации new Game().
 
-const Hero = require('./game-models/Hero');
-const Enemy = require('./game-models/Enemy');
+
+
+
+const runInteractixveConsole = require("./keyboard.js");
+const Hero = require("./game-models/Hero");
+const Enemy = require("./game-models/Enemy");
 const Boomerang = require('./game-models/Boomerang');
-const View = require('./View');
+const View = require("./View");
+
 
 // Основной класс игры.
 // Тут будут все настройки, проверки, запуск.
@@ -13,7 +18,7 @@ const View = require('./View');
 class Game {
   constructor({ trackLength }) {
     this.trackLength = trackLength;
-    this.hero = new Hero({position:0}); // Герою можно аргументом передать бумеранг.
+    this.hero = new Hero({ position: 0 }); // Герою можно аргументом передать бумеранг.
     this.enemy = new Enemy();
     this.view = new View();
     this.track = [];
@@ -23,8 +28,9 @@ class Game {
   regenerateTrack() {
     // Сборка всего необходимого (герой, враг(и), оружие)
     // в единую структуру данных
-    this.track = (new Array(this.trackLength)).fill(' ');
+    this.track = new Array(this.trackLength).fill(",");
     this.track[this.hero.position] = this.hero.skin;
+    this.track[this.enemy.position] = this.enemy.skin;
   }
 
   check() {
@@ -34,14 +40,20 @@ class Game {
   }
 
   play() {
-    setInterval(() => {
-      // Let's play!
-      
+    runInteractixveConsole(this.hero);
+   
+    setInterval(() => {      
+
       this.check();
       this.regenerateTrack();
       this.view.render(this.track);
-    }, 500);
-  }
+      
+      this.enemy.moveLeft()
+
+      
+      
+    }, 200);
+   }
 }
 
 module.exports = Game;
