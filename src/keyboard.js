@@ -14,6 +14,28 @@ const keyboard = {
   r: () => console.log('r'),
   t: () => console.log('t'),
   y: () => console.log('y'),
+  u: () => console.log('u'),
+  i: () => console.log('i'),
+  o: () => console.log('o'),
+  p: () => console.log('p'),
+  a: () => console.log('a'),
+  s: () => console.log('s'),
+  d: () => console.log('d'),
+  f: () => console.log('f'),
+  g: () => console.log('g'),
+  h: () => console.log('h'),
+  j: () => console.log('j'),
+  k: () => console.log('k'),
+  l: () => console.log('l'),
+  z: () => console.log('z'),
+  x: () => console.log('x'),
+  c: () => console.log('c'),
+  v: () => console.log('v'),
+  b: () => console.log('b'),
+  n: () => console.log('n'),
+  m: () => console.log('m'),
+
+
 };
 
 // Какая-то функция.
