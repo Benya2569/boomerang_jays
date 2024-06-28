@@ -12,7 +12,7 @@ class Hero {
     }
   }
 
-  moveRight() {
+  moveRight( ) {
     // Идём вправо.
     this.position += 1;
   }
